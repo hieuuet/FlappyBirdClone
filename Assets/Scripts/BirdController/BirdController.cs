@@ -6,7 +6,8 @@ public class BirdController : MonoBehaviour {
 
     public static BirdController instance; //dong bo giua cac bien va cac script
     public float bounceForce; //do nhay 
-    public float flag = 0; 
+    public float flag = 0;
+    public int score = 0;
     private Rigidbody2D myBody;
     private Animator anim;
 
@@ -71,6 +72,7 @@ public class BirdController : MonoBehaviour {
     {
         if (target.tag == "PipeHolder") ; //set va cham pipe holder
         audioSource.PlayOneShot(pingClip);
+        score++;
     }
     private void OnCollisionEnter2D(Collision2D target){
         if(target.gameObject.tag == "Pipe" || target.gameObject.tag == "Ground"){
